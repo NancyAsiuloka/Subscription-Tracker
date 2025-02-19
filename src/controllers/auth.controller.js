@@ -9,7 +9,10 @@ export const signUp = async (req, res, next) => {
   try {
     // Logic to create a new user
     const { name, email, password } = req.body;
+
+    // Check if the user already exists
     const existingUser = await User.findOne({email})
+
     if (existingUser) {
       const error = new Error("User with this email already exists");
       error.statusCode = 409;
