@@ -29,9 +29,6 @@ export const signUp = async (req, res, next) => {
       [{ name, email, password: hashPassword }],
       { session }
     );
-    const token = jwt.sign({ userId: newUsers[0]._id }, JWT_SECRET, {
-      expiresIn: JWT_EXPIRES_IN,
-    });
 
     await session.commitTransaction(); // commit the transaction
     session.endSession();
@@ -40,13 +37,48 @@ export const signUp = async (req, res, next) => {
       success: true,
       message: "User created",
       data: {
-        token,
         user: newUsers[0],
       },
     });
   } catch (error) {
     await session.abortTransaction(); // abort the transaction
     session.endSession(); // end the session
+    next(error);
+  }
+};
+
+export const signIn = async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+
+    const user = await User.findOne({ email });
+
+    if (!user) {
+      const error = new Error("User not found");
+      error.statusCode = 404;
+      throw error;
+    }
+
+    const isMatch = await bcrypt.compare(password, user.password);
+    if (!isMatch) {
+      const error = new Error("Invalid credentials");
+      error.statusCode = 401;
+      throw error;
+    }
+
+    const token = jwt.sign({ userId: user._id }, JWT_SECRET, {
+      expiresIn: JWT_EXPIRES_IN,
+    });
+
+    res.status(200).json({
+      success: true,
+      message: "User logged in",
+      data: {
+        token,
+        user,
+      },
+    });
+  } catch (error) {
     next(error);
   }
 };
