@@ -6,7 +6,7 @@ export const getUsers = async (req, res, next) => {
 
     res.status(200).json({
       success: true,
-      message: "Fetched succesfully",
+      //   message: "Fetched succesfully",
       data: {
         users,
       },
