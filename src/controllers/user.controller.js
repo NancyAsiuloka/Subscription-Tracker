@@ -8,7 +8,7 @@ export const getUsers = async (req, res, next) => {
       success: true,
       data: {
         users,
-      },
+
     });
   } catch (error) {
     next(error);
