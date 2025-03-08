@@ -9,6 +9,6 @@ export const getUsers = async (req, res, next) => {
       data: users,
     });
   } catch (error) {
-    next(error);
+    next(error.message);
   }
 };
