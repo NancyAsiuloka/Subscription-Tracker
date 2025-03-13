@@ -4,6 +4,7 @@ import {
   signIn,
   updatePassword,
   forgotPassword,
+  resetPassword,
 } from "../controllers/auth.controller.js";
 
 const authRouter = Router();
