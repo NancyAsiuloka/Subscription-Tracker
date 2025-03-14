@@ -13,6 +13,6 @@ authRouter.post("/sign-in", signIn);
 authRouter.post("/sign-out", signUp);
 authRouter.post("/update-password", updatePassword);
 authRouter.post("/forgot-password", forgotPassword);
-authRouter.post("/reset-password", signUp);
+authRouter.post("/reset-password", resetPassword);
 
 export default authRouter;
