@@ -3,6 +3,7 @@ import {
   signUp,
   signIn,
   updatePassword,
+  forgotPassword,
 } from "../controllers/auth.controller.js";
 
 const authRouter = Router();
