@@ -7,7 +7,7 @@ authRouter.post("/sign-up", signUp);
 authRouter.post("/sign-in", signIn);
 authRouter.post("/sign-out", signUp);
 authRouter.post("/update-password", signUp);
-authRouter.post("/sign-out", signUp);
+authRouter.post("/forgot-password", signUp);
 authRouter.post("/sign-out", signUp);
 
 export default authRouter;
