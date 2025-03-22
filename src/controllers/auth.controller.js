@@ -84,3 +84,5 @@ export const signIn = async (req, res, next) => {
 };
 
 export const updatePassword = async (req, res) => {};
+export const forgotPassword = async (req, res) => {};
+export const updatePassword = async (req, res) => {};
