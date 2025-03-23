@@ -1,12 +1,16 @@
 import { Router } from "express";
-import { signUp, signIn } from "../controllers/auth.controller.js";
+import {
+  signUp,
+  signIn,
+  updatePassword,
+} from "../controllers/auth.controller.js";
 
 const authRouter = Router();
 
 authRouter.post("/sign-up", signUp);
 authRouter.post("/sign-in", signIn);
 authRouter.post("/sign-out", signUp);
-authRouter.post("/update-password", signUp);
+authRouter.post("/update-password", updatePassword);
 authRouter.post("/forgot-password", signUp);
 authRouter.post("/reset-password", signUp);
 
