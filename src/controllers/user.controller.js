@@ -77,7 +77,7 @@ export const deleteUser = async (req, res, next) => {
     const user = await User.findOneAndDelete({ _id: req.params.id });
 
     if (!user) {
-      const error = new Error("User not found");
+      const error = new Error("Not found");
       error.statusCode = 404;
       throw error;
     }
