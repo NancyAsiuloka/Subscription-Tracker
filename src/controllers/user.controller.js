@@ -57,7 +57,7 @@ export const updateUser = async (req, res, next) => {
     );
 
     if (!user) {
-      const error = new Error("User not found");
+      const error = new Error("Not found");
       error.statusCode = 404;
       throw error;
     }
