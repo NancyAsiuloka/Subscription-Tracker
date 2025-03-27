@@ -80,6 +80,7 @@ export const deleteUser = async (req, res, next) => {
       error.statusCode = 404;
       throw error;
     }
+
     res.status(200).json({
       message: "User deleted successfuly",
       data: null,
