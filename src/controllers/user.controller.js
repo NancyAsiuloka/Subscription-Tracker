@@ -5,7 +5,7 @@ export const getUsers = async (req, res, next) => {
     const users = await User.find();
 
     res.status(200).json({
-      message: "User created Successfuly",
+      message: "Users fetched Successfuly",
       success: true,
       data: users,
     });
