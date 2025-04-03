@@ -24,6 +24,7 @@ export const getUser = async (req, res, next) => {
     }
 
     res.status(200).json({
+      message: "User created Successfuly",
       success: true,
       data: user,
     });
