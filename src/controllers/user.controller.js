@@ -22,6 +22,7 @@ export const getUser = async (req, res, next) => {
       error.statusCode = 404;
       throw error;
     }
+
     res.status(200).json({
       success: true,
       data: user,
