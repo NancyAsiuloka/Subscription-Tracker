@@ -4,6 +4,7 @@ import {
   getUsers,
   createUser,
   updateUser,
+  deleteUser,
 } from "../controllers/user.controller";
 
 const userRouter = Router();
