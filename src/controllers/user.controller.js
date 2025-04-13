@@ -69,11 +69,7 @@ export const updateUser = async (req, res, next) => {
 
 export const deleteUser = async (req, res, next) => {
   try {
-    const user = await User.findOneAndUpdate(
-      { _id: req.params.id },
-      { $set: req.body },
-      { new: true }
-    );
+    const user = await User.findOneAndUpdate({ _id: req.params.id });
 
     if (!user) {
       const error = new Error("User not found");
