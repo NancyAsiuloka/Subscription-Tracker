@@ -58,6 +58,7 @@ export const updateUser = async (req, res, next) => {
       throw error;
     }
     res.status(200).json({
+      message: User
       success: true,
       data: user,
     });
