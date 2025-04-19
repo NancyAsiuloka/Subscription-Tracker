@@ -48,6 +48,7 @@ export const updateUser = async (req, res, next) => {
   try {
     const user = await User.findOneAndUpdate(
       { _id: req.params.id },
+      { $set: req.body },
       { new: true }
     );
 
