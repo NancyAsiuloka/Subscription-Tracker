@@ -46,7 +46,7 @@ export const createUser = async (req, res, next) => {
 
 export const updateUser = async (req, res, next) => {
   try {
-    const user = await User.findOne({ _id: req.params.id });
+    const user = await User.findOne({ _id: req.params.id }, { new: true });
 
     if (!user) {
       const error = new Error("User not found");
