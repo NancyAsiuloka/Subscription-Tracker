@@ -34,5 +34,8 @@ export const getUser = async (req, res, next) => {
 export const createUser = async (req, res, next) => {
   const user = await User.create(req.body);
 
-  res.
+  res.status(200).json({
+    sucess: true,
+    data: user,
+  });
 };
