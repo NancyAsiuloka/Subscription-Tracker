@@ -30,3 +30,9 @@ export const getUser = async (req, res, next) => {
     next(error.message);
   }
 };
+
+export const createUser = async (req, res, next) => {
+  const user = await User.create(req.body);
+
+  res.
+};
